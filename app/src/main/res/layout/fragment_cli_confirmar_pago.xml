@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EAEAEA"
+    android:padding="26dp"
+
+
+    android:orientation="vertical"
+    tools:context="ui.CliConfirmarPagoFragment">
+
+    <!-- Título -->
+
+    <!-- Contenedor del formulario -->
+    <TextView
+        android:id="@+id/titulo_formulario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Formulario de PAGOOOOOOOOO"
+        android:textColor="#4CAF50"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/contenedor_formulario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <!-- Título del formulario -->
+        <TextView
+            android:id="@+id/titulo_informacion_pago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Información de Pagooooo"
+            android:textSize="20sp"
+            android:textColor="#4CAF50"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Logos de tarjetas -->
+        <LinearLayout
+            android:id="@+id/logos_tarjetas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/logo_bbva"
+                android:layout_width="48dp"
+                android:layout_height="32dp"
+                android:src="@drawable/bbva_"
+                android:contentDescription="Logo de BBVA"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/logo_mastercard"
+                android:layout_width="48dp"
+                android:layout_height="32dp"
+                android:src="@drawable/mastercard"
+                android:contentDescription="Logo de Mastercard" />
+        </LinearLayout>
+
+        <!-- Etiqueta Nombre en la Tarjeta -->
+        <TextView
+            android:id="@+id/label_nombre_tarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre en la Tarjeta"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/nombre_tarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el nombre"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:background="@drawable/rounded_border"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Etiqueta Número de Tarjeta -->
+        <TextView
+            android:id="@+id/label_numero_tarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Número de Tarjeta"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/numero_tarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el número"
+            android:inputType="number"
+            android:padding="12dp"
+            android:background="@drawable/rounded_border"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Fecha de Expiración y CVV -->
+        <TextView
+            android:id="@+id/label_fecha_expiracion"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Fecha de Expiración"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/fecha_expiracion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="MM/AA"
+                android:inputType="date"
+                android:padding="12dp"
+                android:background="@drawable/rounded_border"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1" />
+
+            <!-- Etiqueta y campo CVV alineados correctamente -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/cvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="CVV"
+                    android:inputType="numberPassword"
+                    android:padding="12dp"
+                    android:background="@drawable/rounded_border" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Botón Enviar -->
+        <Button
+            android:id="@+id/boton_enviar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enviar Pago"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</LinearLayout>

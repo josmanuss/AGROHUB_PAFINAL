@@ -1,0 +1,133 @@
+<resources>
+    <string name="app_name">AGROHUB</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem.
+    </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- CREDENCIALES DE APLICATIVO -->
+
+    <string name="developer"></string>
+    <string name="desarrollo">Desarrollado por:</string>
+
+    <!-- EMPEZAR -->
+    <string name="btn_empezar">Empezar </string>
+
+    <!-- LOGIN -->
+    <string name="titulo_login">Bienvenido</string>
+    <string name="lbl_usuario">Usuario</string>
+    <string name="txt_usuario">Ingrese Usuario</string>
+    <string name="lbl_password">Contraseña</string>
+    <string name="txt_password">Ingrese Contraseña</string>
+    <string name="btn_ingresar">Ingresar</string>
+    <string name="txt_crear_cuenta">No tienes cuenta?, Registrate</string>
+    <string name="txt_recuperar_cuenta">Recuperar Cuenta</string>
+
+
+    <!-- Registro -->
+    <string name="lbl_nombre">Nombre</string>
+    <string name="titulo_registro">Registro</string>
+    <string name="lbl_apellido">Apellido</string>
+    <string name="lbl_email">Email</string>
+    <string name="lbl_contraseña">Contraseña</string>
+    <string name="lbl_Ccontraseña">Confirmar Contraseña</string>
+    <string name="btn_enviar">Enviar</string>
+    <string name="txt_YTCuenta">¿Ya tienes Cuenta? Inicia Sesion </string>
+
+    <!-- RECUPERAR CUENTA -->
+    <string name="titulo_RCuenta">RECUPERAR CUENTA</string>
+    <string name="lbl_RCuenta">Correo ELectronica</string>
+    <string name="btn_atras">ATRAS</string>
+    <string name="title_activity_menu_agricultor">MenuAgricultor</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <!-- EDITAR PRODUCTO -->
+    <string name="titulo_ep">Editar Producto</string>
+    <string name="ep_namePro">Nombre del Producto</string>
+    <string name="ep_cat">Categira</string>
+    <string name="ep_pre">Precio (S/)</string>
+    <string name="ep_can">Cantidad</string>
+    <string name="ep_des">Descripción</string>
+    <string name="ep_moIma">Modificar Imagen</string>
+    <string name="ep_btn_sele">Seleccionar Archivo</string>
+    <string name="ep_btn_a">Agregar Producto</string>
+    <string name="ep_btn_c">Cancelar</string>
+
+    <!-- EDITAR PERFIL DE USUARIO -->
+    <string name="titulo_epu">Editar Perfil de Usuario</string>
+    <string name="epu_nameuser">Nombre del Usuario</string>
+    <string name="epu_dir">Dirección</string>
+    <string name="epu_pre">Teléfono</string>
+    <string name="epu_cont">Contraseña</string>
+    <string name="epu_btn_a">Actulizar Información</string>
+    <string name="epu_btn_c">Cancelar</string>
+
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="app_title">Asistencia para Agricultores</string>
+    <string name="general_inquiries">Consultas Generales: Para preguntas sobre el uso de la plataforma, consulta nuestra sección de Preguntas Frecuentes.</string>
+    <string name="technical_assistance">Asesoría Técnica: Si necesitas ayuda con problemas técnicos, contáctanos a través de nuestro formulario de contacto.</string>
+    <string name="support_phone">Teléfono de Soporte: Llámanos al 555-5678 para asistencia inmediata.</string>
+    <string name="problem_description_hint">Describe tu problema aquí</string>
+    <string name="email_hint">Correo electrónico</string>
+    <string name="send_request_button">Enviar Solicitud</string>
+    <string name="status_message_empty_fields">Por favor, complete todos los campos.</string>
+    <string name="status_message_success">Solicitud enviada con éxito.</string>
+    <string name="perfil">perfil</string> <!-- Fixed the tag -->
+    <string name="documento">DNI</string>
+    <string name="usuario">usuario</string>
+    <string name="correo">correo</string>
+    <string name="nombres">Nombre:</string>
+    <string name="apellidos">apellidos</string>
+    <string name="celular">Telefono:</string>
+    <string name="btnactualizarcontra">Actualizar Perfil</string>
+
+    <string name="btnagregarinfo">Agregar Informaciòn</string>
+    <string name="cultivo_principal">Cultivo Principal:</string>
+    <string name="hectareas_trabajadas">Hectáreas:</string>
+    <string name="experiencia">Experiencia:</string>
+    <string name="ubicacion">Ubicación:</string>
+    <string name="historial">Historial de ventas</string>
+    <string name="logo_description">Descripciòn</string>
+    <string name="editar">Editar Perfil de Agriculto</string>
+    <string name="buscar">Buscar</string>
+    <string name="anterior">Anterior</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="uno">1</string>
+    <string name="InfoAgr">Agricultor</string>
+
+
+    <string-array name="user_types">
+        <item>Seleccionar Tipo</item>
+        <item>Consumidor</item>
+        <item>Agricultor</item>
+    </string-array>
+    <string name="title_activity_agrohub_main">AGROHUB_main</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+    <string name="inicio_consumidor">Inicio</string>
+    <string name="productos_consumidoir">Productos</string>
+    <string name="pedidos_compras_consumidor">Pedidos y compras</string>
+    <string name="pedidos_consumidor">Mis pedidos</string>
+    <string name="compras_consumidor">Mis compras</string>
+
+</resources>
