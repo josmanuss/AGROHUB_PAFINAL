@@ -11,6 +11,7 @@ import com.josemanuel.paf_agrohub_grupo01.dominio.ConsumidorResponse;
 import com.josemanuel.paf_agrohub_grupo01.dominio.LoginRequest;
 import com.josemanuel.paf_agrohub_grupo01.dominio.LoginResponse;
 import com.josemanuel.paf_agrohub_grupo01.dominio.ObtenerAgricultorResp;
+import com.josemanuel.paf_agrohub_grupo01.dominio.ObtenerProductoResp;
 import com.josemanuel.paf_agrohub_grupo01.dominio.RegistrarProductoReq;
 import com.josemanuel.paf_agrohub_grupo01.dominio.RegistrarProductoResp;
 
@@ -44,4 +45,10 @@ public interface ApiService {
 
     @PUT("actualizarConsumidor")
     Call<ActualizarConsumidorResponse> actualizarConsumidor(@Body ActualizarConsumidorRequest actualizarConsumidorRequest);
+
+
+    @GET("listarProductos")
+    Call<List<ObtenerProductoResp>> obtenerProductos();
+
 }
+

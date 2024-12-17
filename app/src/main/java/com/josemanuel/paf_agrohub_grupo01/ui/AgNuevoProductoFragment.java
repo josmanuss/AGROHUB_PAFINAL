@@ -115,7 +115,7 @@ public class AgNuevoProductoFragment extends Fragment {
                             RegistrarProductoResp resp = response.body();
                             Toast.makeText(getContext(), Objects.requireNonNull(resp).getMessage(),Toast.LENGTH_LONG).show();
                             NavHostFragment.findNavController(AgNuevoProductoFragment.this).navigate(
-                                    R.id.action_agNuevoProductoFragment_to_agPerfilAgricultorFragment
+                                    R.id.action_agNuevoProductoFragment_to_HomeAgricultorFragment
                             );
                         }
                         else {

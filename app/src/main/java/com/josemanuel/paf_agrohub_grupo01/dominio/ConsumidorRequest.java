@@ -5,8 +5,8 @@ public class ConsumidorRequest {
     private String email;
     private String direccion;
     private String telefono;
-    private String nombre_usuario;
-    private String contrasenia;
+    private String username;
+    private String password;
     private String preferencias;
 
     public String getNombre() {
@@ -42,19 +42,19 @@ public class ConsumidorRequest {
     }
 
     public String getNombre_usuario() {
-        return nombre_usuario;
+        return username;
     }
 
     public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
+        this.username = nombre_usuario;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPreferencias() {
@@ -65,13 +65,13 @@ public class ConsumidorRequest {
         this.preferencias = preferencias;
     }
 
-    public ConsumidorRequest(String nombre, String email, String direccion, String telefono, String nombre_usuario, String contrasenia, String preferencias) {
+    public ConsumidorRequest(String nombre, String email, String direccion, String telefono, String username, String password, String preferencias) {
         this.nombre = nombre;
         this.email = email;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.nombre_usuario = nombre_usuario;
-        this.contrasenia = contrasenia;
+        this.username = username;
+        this.password = password;
         this.preferencias = preferencias;
     }
 }

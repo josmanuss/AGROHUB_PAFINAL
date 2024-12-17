@@ -6,58 +6,83 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+
 import com.josemanuel.paf_agrohub_grupo01.R;
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CliProductosFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.josemanuel.paf_agrohub_grupo01.databinding.FragmentCliProductosBinding;
+import com.josemanuel.paf_agrohub_grupo01.databinding.ItemProductoBinding;
+import com.josemanuel.paf_agrohub_grupo01.datos.ApiClient;
+import com.josemanuel.paf_agrohub_grupo01.datos.ApiService;
+import com.josemanuel.paf_agrohub_grupo01.dominio.ObtenerProductoResp;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import java.util.List;
+
 public class CliProductosFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private FragmentCliProductosBinding binding;
 
     public CliProductosFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CliProductosFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CliProductosFragment newInstance(String param1, String param2) {
-        CliProductosFragment fragment = new CliProductosFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        obtenerProductos();
+    }
+
+    // Obtener productos de la API
+    public void obtenerProductos() {
+
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+        Call<List<ObtenerProductoResp>> call = apiService.obtenerProductos();
+
+        call.enqueue(new Callback<List<ObtenerProductoResp>>() {
+            @Override
+            public void onResponse(Call<List<ObtenerProductoResp>> call, Response<List<ObtenerProductoResp>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<ObtenerProductoResp> productos = response.body();
+
+                    binding.linearLayoutProductos.removeAllViews(); // Limpiar contenido previo
+
+                    // Recorrer la lista de productos y agregar cada uno a la vista
+                    for (ObtenerProductoResp producto : productos) {
+                        // Inflar el layout para cada producto usando ItemProductoBinding
+                        View productoView = LayoutInflater.from(getContext()).inflate(R.layout.item_producto, binding.linearLayoutProductos, false);
+                        ItemProductoBinding itemBinding = ItemProductoBinding.bind(productoView); // Usamos el ViewBinding para el item
+
+                        // Establecer los valores dinámicos usando el itemBinding
+                        itemBinding.tvNombreProducto.setText(producto.getNombre_producto());
+                        itemBinding.tvDescripcionProducto.setText(producto.getDescripcion());
+                        itemBinding.tvPrecioProducto.setText("Precio Unitario: S/ " + producto.getPrecio());
+
+                        if (producto.getCantidad_disponible() > 0) {
+                            itemBinding.chipStock.setText("En Stock");
+                            itemBinding.chipStock.setChipBackgroundColorResource(R.color.green);
+                        } else {
+                            itemBinding.chipStock.setText("Agotado");
+                            itemBinding.chipStock.setChipBackgroundColorResource(R.color.red);
+                        }
+
+                        // Agregar la vista inflada al LinearLayout
+                        binding.linearLayoutProductos.addView(productoView);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ObtenerProductoResp>> call, Throwable t) {
+                // Manejar error
+            }
+        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cli_productos, container, false);
+        binding = FragmentCliProductosBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 }

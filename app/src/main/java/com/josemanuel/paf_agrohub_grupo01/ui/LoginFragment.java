@@ -80,7 +80,7 @@ public class LoginFragment extends Fragment {
                                     bundleAC.putString("rol",rol);
                                     ((MainActivity) requireActivity()).handleLoginRole(bundleAC);
 
-                                    NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_agPerfilAgricultorFragment);
+                                    NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_HomeAgricultorFragment);
                                 } else if ("Consumidor".equals(rol)) {
                                     bundleAC.putString("rol", rol);
                                     ((MainActivity) requireActivity()).handleLoginRole(bundleAC);

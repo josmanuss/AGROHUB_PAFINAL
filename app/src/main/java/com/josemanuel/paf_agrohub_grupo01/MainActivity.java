@@ -1,11 +1,13 @@
 package com.josemanuel.paf_agrohub_grupo01;
 
 import android.os.Bundle;
-import android.view.Menu;
+//import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -54,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
                 R.id.perfilConsumidor,
                 R.id.agSoporteAgricultorFragment,
                 R.id.agNuevoProductoFragment,
-                R.id.agEditarProductoFragment)
+                R.id.agEditarProductoFragment,
+                R.id.HomeAgricultorFragment,
+                R.id.cliCarritoComprasFragment,
+                R.id.cliComprasFragment)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -73,6 +78,24 @@ public class MainActivity extends AppCompatActivity {
                 drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
             }
         });
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.loginFragment) {
+                    logout(navController); // Cerrar sesión
+                } else {
+                    // Delega al controlador de navegación por defecto
+                    boolean handled = NavigationUI.onNavDestinationSelected(item, navController);
+                    if (handled) {
+                        binding.drawerLayout.closeDrawers(); // Cierra el Drawer después de navegar
+                    }
+                }
+                return true;
+            }
+        });
+
+
 
         // Actualizar menú según el rol
         updateMenuAccordingToRole();
@@ -95,6 +118,17 @@ public class MainActivity extends AppCompatActivity {
         this.bundleLogin = bundle; // Guarda el Bundle
         updateMenuAccordingToRole(); // Actualiza el menú según el rol
         return "Agricultor".equals(bundle.getString("rol"));
+    }
+
+    private void logout(NavController navController) {
+        // Limpiar cualquier dato almacenado (bundleLogin, sesiones, etc.)
+        bundleLogin = null;
+
+        // Navegar al LoginFragment
+        navController.navigate(R.id.loginFragment);
+
+        // Cerrar el DrawerLayout si está abierto
+        binding.drawerLayout.closeDrawers();
     }
 
     @Override

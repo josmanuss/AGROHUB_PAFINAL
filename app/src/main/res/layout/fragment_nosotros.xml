@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#F5F5F5"
+    tools:context=".dominio.nosotros">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="AGRO-HUB Logo"
+        android:src="@drawable/logo_contraste"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:text="AGRO-HUB es una plataforma digital innovadora que conecta directamente a productores y consumidores de productos agrícolas. La empresa busca optimizar el proceso de compra-venta de productos agrícolas, mejorando la eficiencia y la experiencia del usuario. Un equipo de estudiantes de ingeniería de sistemas de la Universidad Señor de Sipán trabaja en su constante mejora."
+        android:textAlignment="center"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+    <TextView
+        android:id="@+id/tv_features"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:text="La plataforma ofrece un extenso catálogo de productos, desde frutas frescas hasta lácteos y granos, permitiendo a los usuarios realizar pedidos de manera fácil, segura y confiable. Además, incluye atención personalizada y soporte técnico."
+        android:textAlignment="center"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+    <TextView
+        android:id="@+id/tv_strategy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:text="AGRO-HUB implementa estrategias competitivas inspiradas en investigaciones sobre expansión de mercado y adopción de nuevas tecnologías, lo que asegura la calidad y competitividad en el sector agrícola."
+        android:textAlignment="center"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_features" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

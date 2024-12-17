@@ -10,7 +10,7 @@ public class ConsumidorResponse {
         private String email;
         private String direccion;
         private String telefono;
-        private String nombre_usuario;
+        private String username;
         private String preferencias;
 
         public String getNombre() {
@@ -46,11 +46,11 @@ public class ConsumidorResponse {
         }
 
         public String getNombre_usuario() {
-            return nombre_usuario;
+            return username;
         }
 
         public void setNombre_usuario(String nombre_usuario) {
-            this.nombre_usuario = nombre_usuario;
+            this.username = nombre_usuario;
         }
 
         public String getPreferencias() {

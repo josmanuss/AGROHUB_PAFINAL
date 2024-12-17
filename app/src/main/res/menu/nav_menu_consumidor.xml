@@ -18,25 +18,26 @@
             android:title="Perfil"/>
 
         <item
-            android:id="@+id/nav_settings"
+            android:id="@+id/nosotros"
             android:icon="@drawable/baseline_business_center_24"
-            android:title="Nosotros"/>
+            android:title="Nosotros" />
+
     </group>
 
     <item android:title="Compras">
         <menu>
             <item
-                android:id="@+id/clienteProductosFragment"
+                android:id="@+id/cliProductosFragment"
                 android:icon="@drawable/baseline_local_mall_24"
                 android:title="Productos"/>
 
             <item
-                android:id="@+id/nav_carrito"
+                android:id="@+id/cliCarritoComprasFragment"
                 android:icon="@drawable/baseline_shopping_cart_24"
                 android:title="Carrito de Compras"/>
 
             <item
-                android:id="@+id/nav_Pedidos"
+                android:id="@+id/cliComprasFragment"
                 android:icon="@drawable/baseline_local_shipping_24"
                 android:title="Pedidos"/>
         </menu>
@@ -48,7 +49,7 @@
             <item
                 android:id="@+id/loginFragment"
                 android:icon="@drawable/baseline_exit_to_app_24"
-                android:title="Cerrar Sesión"/>
+                android:title="Cerrar Sesión" />
         </menu>
     </item>
 

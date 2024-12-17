@@ -12,7 +12,7 @@ public class AgricultorResponse {
         private String email;
         private String direccion;
         private String telefono;
-        private String nombre_usuario;
+        private String username;
         private String certificacion;
 
         public String getNombre() {
@@ -48,11 +48,11 @@ public class AgricultorResponse {
         }
 
         public String getNombre_usuario() {
-            return nombre_usuario;
+            return username;
         }
 
         public void setNombre_usuario(String nombre_usuario) {
-            this.nombre_usuario = nombre_usuario;
+            this.username = nombre_usuario;
         }
 
         public String getCertificacion() {

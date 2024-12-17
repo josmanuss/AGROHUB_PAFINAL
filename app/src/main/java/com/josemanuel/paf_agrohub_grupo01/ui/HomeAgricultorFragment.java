@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.josemanuel.paf_agrohub_grupo01.databinding.FragmentHomeAgricultorBinding;
 
 
-public class HomeAgricultor extends Fragment {
+public class HomeAgricultorFragment extends Fragment {
 
     private FragmentHomeAgricultorBinding binding;
 
