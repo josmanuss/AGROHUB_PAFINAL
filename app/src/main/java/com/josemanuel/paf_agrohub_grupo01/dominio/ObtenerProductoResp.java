@@ -12,7 +12,6 @@ public class ObtenerProductoResp {
     private int idCategoria;
 
     public ObtenerProductoResp() {
-
     }
 
     public ObtenerProductoResp(int id_producto, String imagen, String nombre_producto, String descripcion, double precio, int cantidad_disponible, int id_agricultor, String fecha_publicacion, int idCategoria) {

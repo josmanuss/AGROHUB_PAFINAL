@@ -4,60 +4,162 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.button.MaterialButton;
 import com.josemanuel.paf_agrohub_grupo01.R;
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CliCarritoComprasFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.josemanuel.paf_agrohub_grupo01.databinding.FragmentCliCarritoComprasBinding;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class CliCarritoComprasFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private FragmentCliCarritoComprasBinding binding;
+    private List<Producto> productos = new ArrayList<>();
 
     public CliCarritoComprasFragment() {
-        // Required empty public constructor
+        // Constructor vacío
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CliCarritoComprasFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CliCarritoComprasFragment newInstance(String param1, String param2) {
-        CliCarritoComprasFragment fragment = new CliCarritoComprasFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        // Crear una lista de productos por defecto
+        productos = new ArrayList<>();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cli_carrito_compras, container, false);
+        binding = FragmentCliCarritoComprasBinding.inflate(inflater, container, false);
+
+        // Llenar la vista con la lista de productos
+        mostrarProductos();
+
+        // Manejo de eventos para modificar la cantidad
+        binding.btnPedidoRevision.setOnClickListener(view -> {
+            // Acción para el botón Pedido en revisión
+            Toast.makeText(getContext(), "Pedido en revisión", Toast.LENGTH_SHORT).show();
+        });
+
+        return binding.getRoot();
+    }
+
+    private void mostrarProductos() {
+        if (productos.isEmpty()) {
+            Toast.makeText(getContext(), "El carrito está vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        binding.productosCarrito.removeAllViews(); // Limpiar el contenedor antes de agregar productos nuevos
+
+        for (int i = 0; i < productos.size(); i++) {
+            Producto producto = productos.get(i);
+
+            // Inflar una nueva vista de producto desde el archivo de layout
+            View productoView = getLayoutInflater().inflate(R.layout.item_carrito, null);
+
+            // Obtener referencias a los elementos de la vista
+            TextView productName = productoView.findViewById(R.id.productName);
+            TextView productQuantity = productoView.findViewById(R.id.productQuantity);
+            TextView productSubTotal = productoView.findViewById(R.id.productSubTotal);
+            MaterialButton btnSumar = productoView.findViewById(R.id.btnSumar);
+            MaterialButton btnRestar = productoView.findViewById(R.id.btnRestar);
+
+            // Llenar los datos de producto en la vista
+            productName.setText(producto.getNombre());
+            productQuantity.setText(String.valueOf(producto.getCantidad()));
+            productSubTotal.setText(String.format("$ %.2f", producto.getSubtotal()));
+
+            // Asignar listeners para los botones de sumar y restar
+            btnSumar.setOnClickListener(v -> {
+                producto.setCantidad(producto.getCantidad() + 1);
+                producto.setSubtotal(producto.getCantidad() * producto.getPrecio());
+                actualizarProducto(productoView, producto);
+            });
+
+            btnRestar.setOnClickListener(v -> {
+                if (producto.getCantidad() > 1) {
+                    producto.setCantidad(producto.getCantidad() - 1);
+                    producto.setSubtotal(producto.getCantidad() * producto.getPrecio());
+                    actualizarProducto(productoView, producto);
+                }
+            });
+
+            // Agregar la vista del producto al contenedor
+            binding.productosCarrito.addView(productoView);
+        }
+    }
+
+    private void actualizarProducto(View productoView, Producto producto) {
+        // Actualizar la cantidad y subtotal de un producto
+        ((TextView) productoView.findViewById(R.id.productQuantity)).setText(String.valueOf(producto.getCantidad()));
+        ((TextView) productoView.findViewById(R.id.productSubTotal)).setText(String.format("$ %.2f", producto.getSubtotal()));
+        actualizarTotal();
+    }
+
+    private void actualizarTotal() {
+        float total = 0;
+        for (Producto producto : productos) {
+            total += producto.getSubtotal();
+        }
+        binding.totalAmount.setText("Total: S/ " + total);
+    }
+
+    // Clase Producto para representar los productos en el carrito
+    public static class Producto {
+        private int id;
+        private String nombre;
+        private int cantidad;
+        private float precio;
+        private float subtotal;
+
+        public Producto(int id, String nombre, int cantidad, float precio, float subtotal) {
+            this.id = id;
+            this.nombre = nombre;
+            this.cantidad = cantidad;
+            this.precio = precio;
+            this.subtotal = subtotal;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public int getCantidad() {
+            return cantidad;
+        }
+
+        public void setCantidad(int cantidad) {
+            this.cantidad = cantidad;
+        }
+
+        public float getPrecio() {
+            return precio;
+        }
+
+        public float getSubtotal() {
+            return subtotal;
+        }
+
+        public void setSubtotal(float subtotal) {
+            this.subtotal = subtotal;
+        }
     }
 }

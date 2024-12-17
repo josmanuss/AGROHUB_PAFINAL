@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -23,6 +22,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="16dp" />
 
+    <!-- Título Cliente -->
     <TextView
         android:id="@+id/titleCliente"
         android:layout_width="0dp"
@@ -36,6 +36,7 @@
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Título Carrito -->
     <TextView
         android:id="@+id/titleCarrito"
         android:layout_width="0dp"
@@ -49,6 +50,7 @@
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toBottomOf="@id/titleCliente" />
 
+    <!-- Tarjeta de Carrito -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cartCard"
         android:layout_width="0dp"
@@ -60,117 +62,84 @@
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toBottomOf="@id/titleCarrito">
 
-        <LinearLayout
+        <!-- Hacer el LinearLayout desplazable -->
+        <android.widget.ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPedidoRevision"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="Pedido en revisión"
-                android:textSize="16sp"
-                app:cornerRadius="8dp" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardBackgroundColor="#F5F5F5"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="0dp">
-
-                <LinearLayout
-                    android:id="@+id/productContainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Producto 1"
-                        android:textSize="16sp" />
-
-                    <com.google.android.material.button.MaterialButton
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:insetLeft="0dp"
-                        android:insetTop="0dp"
-                        android:insetRight="0dp"
-                        android:insetBottom="0dp"
-                        android:padding="0dp"
-                        android:text="-"
-                        android:textSize="20sp"
-                        app:cornerRadius="24dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="12dp"
-                        android:text="1"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <com.google.android.material.button.MaterialButton
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:insetLeft="0dp"
-                        android:insetTop="0dp"
-                        android:insetRight="0dp"
-                        android:insetBottom="0dp"
-                        android:padding="0dp"
-                        android:text="+"
-                        android:textSize="20sp"
-                        app:cornerRadius="24dp" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="8dp"
-                        android:text="Eliminar"
-                        android:textColor="@android:color/white"
-                        app:backgroundTint="#F44336"
-                        app:cornerRadius="8dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/actionButtons"
+                android:id="@+id/productosCarrito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="16dp">
 
+                <!-- Botón Pedido en revisión -->
                 <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
+                    android:id="@+id/btnPedidoRevision"
+                    android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:text="Agregar Producto"
-                    android:textSize="14sp"
+                    android:text="Pedido en revisión"
+                    android:textSize="16sp"
                     app:cornerRadius="8dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="0dp"
-                    android:layout_height="56dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    android:text="Realizar Pedido"
-                    android:textSize="14sp"
-                    app:cornerRadius="8dp" />
+                <!-- CardView de Producto -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="#F5F5F5"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp">
+
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Monto Total -->
+                <TextView
+                    android:id="@+id/totalAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Total: $20.00"
+                    android:textColor="#4CAF50"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Botones de acción -->
+                <LinearLayout
+                    android:id="@+id/actionButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <!-- Botón Agregar Producto -->
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="Agregar Producto"
+                        android:textSize="14sp"
+                        app:cornerRadius="8dp" />
+
+                    <!-- Botón Realizar Pedido -->
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:text="Realizar Pedido"
+                        android:textSize="14sp"
+                        app:cornerRadius="8dp" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+        </android.widget.ScrollView>
     </com.google.android.material.card.MaterialCardView>
 
+    <!-- Información del Pedido -->
     <TextView
         android:id="@+id/titleInformacion"
         android:layout_width="0dp"
@@ -183,5 +152,4 @@
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toBottomOf="@id/cartCard" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

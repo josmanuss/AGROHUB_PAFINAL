@@ -124,7 +124,11 @@
         android:id="@+id/cliConsumidorVistaFragment"
         android:name="com.josemanuel.paf_agrohub_grupo01.ui.CliConsumidorVistaFragment"
         android:label="Vista Consumidor"
-        tools:layout="@layout/fragment_cli_consumidor_vista" />
+        tools:layout="@layout/fragment_cli_consumidor_vista" >
+        <argument
+            android:name="id_consumidor"
+            app:argType="integer" />
+    </fragment>
 
     <fragment
         android:id="@+id/cliDescargarComprobanteFragment"

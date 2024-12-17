@@ -80,11 +80,19 @@ public class LoginFragment extends Fragment {
                                     bundleAC.putString("rol",rol);
                                     ((MainActivity) requireActivity()).handleLoginRole(bundleAC);
 
+
+
                                     NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_HomeAgricultorFragment);
                                 } else if ("Consumidor".equals(rol)) {
                                     bundleAC.putString("rol", rol);
                                     ((MainActivity) requireActivity()).handleLoginRole(bundleAC);
-                                    NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_consumidorVistaFragment);
+                                    int id_usuario = loginResponse.getId_usuario();
+
+                                    LoginFragmentDirections.ActionLoginFragmentToConsumidorVistaFragment accion =
+                                            LoginFragmentDirections.actionLoginFragmentToConsumidorVistaFragment(id_usuario);
+
+                                    Toast.makeText(getContext(),"Bienvenido: "+loginResponse.getPersona().getNombre()+"   "+"ID_CONSUMIDOR: "+String.valueOf(id_usuario),Toast.LENGTH_LONG).show();
+                                    NavHostFragment.findNavController(LoginFragment.this).navigate(accion);
                                 }
                             } else {
                                 Toast.makeText(getContext(), loginResponse.getMensaje(), Toast.LENGTH_LONG).show();

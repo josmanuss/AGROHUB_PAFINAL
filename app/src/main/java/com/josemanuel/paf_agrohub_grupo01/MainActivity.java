@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
                 R.id.agEditarProductoFragment,
                 R.id.HomeAgricultorFragment,
                 R.id.cliCarritoComprasFragment,
-                R.id.cliComprasFragment)
+                R.id.cliComprasFragment,
+                R.id.cliProductosFragment
+                )
                 .setOpenableLayout(drawer)
                 .build();
 
