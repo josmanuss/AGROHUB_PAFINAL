@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_loginFragment_to_consumidorVistaFragment"
             app:destination="@id/cliConsumidorVistaFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_agPerfilAgricultorFragment"
+            app:destination="@id/agPerfilAgricultorFragment" />
     </fragment>
 
     <fragment
@@ -68,7 +71,11 @@
         android:id="@+id/agNuevoProductoFragment"
         android:name="com.josemanuel.paf_agrohub_grupo01.ui.AgNuevoProductoFragment"
         android:label="Nuevo Producto"
-        tools:layout="@layout/fragment_ag_nuevo_producto" />
+        tools:layout="@layout/fragment_ag_nuevo_producto" >
+        <action
+            android:id="@+id/action_agNuevoProductoFragment_to_agPerfilAgricultorFragment"
+            app:destination="@id/agPerfilAgricultorFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/agPerfilAgricultorFragment"
@@ -119,12 +126,6 @@
         tools:layout="@layout/fragment_cli_descargar_comprobante" />
 
     <fragment
-        android:id="@+id/cliEditarPerfilFragment"
-        android:name="com.josemanuel.paf_agrohub_grupo01.ui.CliEditarPerfilFragment"
-        android:label="Editar Perfil"
-        tools:layout="@layout/fragment_cli_editar_perfil" />
-
-    <fragment
         android:id="@+id/cliProductosFragment"
         android:name="com.josemanuel.paf_agrohub_grupo01.ui.CliProductosFragment"
         android:label="Productos"
@@ -135,5 +136,15 @@
         android:name="com.josemanuel.paf_agrohub_grupo01.ui.CliRealizarPedidoFragment"
         android:label="Realizar Pedido"
         tools:layout="@layout/fragment_cli_realizar_pedido" />
+    <fragment
+        android:id="@+id/clienteProductosFragment"
+        android:name="com.josemanuel.paf_agrohub_grupo01.ui.ClienteProductosFragment"
+        android:label="Listado de Productos"
+        tools:layout="@layout/fragment_cliente_productos" />
+    <fragment
+        android:id="@+id/perfilConsumidor"
+        android:name="com.josemanuel.paf_agrohub_grupo01.ui.CliEditarPerfilFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_cli_editar_perfil" />
 
 </navigation>

@@ -9,6 +9,7 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+
+    private Bundle bundleLogin;
 
     private final Set<Integer> hiddenElementsFragmentIds = new HashSet<Integer>() {{
         add(R.id.loginFragment);
@@ -44,13 +47,22 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.cliConsumidorVistaFragment)
+                R.id.cliConsumidorVistaFragment,
+                R.id.clienteProductosFragment,
+                R.id.cliRealizarPedidoFragment,
+                R.id.perfilConsumidor,
+                R.id.agPerfilAgricultorFragment,
+                R.id.perfilConsumidor,
+                R.id.agSoporteAgricultorFragment,
+                R.id.agNuevoProductoFragment,
+                R.id.agEditarProductoFragment)
                 .setOpenableLayout(drawer)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
 
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (hiddenElementsFragmentIds.contains(destination.getId())) {
@@ -74,7 +86,15 @@ public class MainActivity extends AppCompatActivity {
                 hiddenElementsFragmentIds.contains(navController.getCurrentDestination().getId())) {
             return false;
         }
-        getMenuInflater().inflate(R.menu.main, menu);
+
+
+
+        if ( handleLoginRole( bundleLogin )){
+            getMenuInflater().inflate(R.menu.nav_menu_agricultor, menu);
+        }
+        else{
+            getMenuInflater().inflate(R.menu.nav_menu_consumidor, menu);
+        }
         return true;
     }
 
@@ -84,4 +104,18 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public boolean handleLoginRole(Bundle bundle) {
+        boolean resultado = false;
+
+        if (bundle != null) {
+            this.bundleLogin = bundle;
+            String rol = this.bundleLogin.getString("rol");
+            resultado = "Agricultor".equals(rol);
+        }
+
+        return resultado;
+    }
+
+
 }

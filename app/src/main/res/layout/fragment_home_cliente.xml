@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Barra superior con logo y menú -->
+
+    <!-- Banner de promociones o novedades -->
+    <TextView
+        android:id="@+id/bannerPromocional"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="#005111"
+        android:gravity="center"
+        android:text="¡Promoción Especial!"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        tools:layout_editor_absoluteY="72dp"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Contenedor de categorías -->
+    <LinearLayout
+        android:id="@+id/categoriaContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@id/bannerPromocional">
+
+        <!-- Categoria 1 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frutas"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#2C3E50" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🍎"
+                android:textSize="30sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Categoria 2 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verduras"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#2C3E50" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🥦"
+                android:textSize="30sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Categoria 3 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lácteos"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#2C3E50" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🥛"
+                android:textSize="30sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Título para productos destacados -->
+    <TextView
+        android:id="@+id/tituloProductosDestacados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Productos Destacados"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/categoriaContainer"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Contenedor para productos destacados -->
+    <LinearLayout
+        android:id="@+id/productosDestacadosContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tituloProductosDestacados">
+
+        <!-- Producto 1 -->
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Producto 1"
+                android:textSize="14sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$20"
+                android:textSize="12sp"
+                android:textColor="@android:color/holo_green_dark"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <!-- Producto 2 -->
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Producto 2"
+                android:textSize="14sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$30"
+                android:textSize="12sp"
+                android:textColor="@android:color/holo_green_dark"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <!-- Producto 3 -->
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Producto 3"
+                android:textSize="14sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$25"
+                android:textSize="12sp"
+                android:textColor="@android:color/holo_green_dark"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Botón para ver más productos -->
+    <Button
+        android:id="@+id/botonVerMas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver más productos"
+        android:backgroundTint="#005111"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/productosDestacadosContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

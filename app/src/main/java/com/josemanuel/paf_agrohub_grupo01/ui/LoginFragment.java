@@ -2,6 +2,7 @@ package com.josemanuel.paf_agrohub_grupo01.ui;
 
 import android.os.Bundle;
 
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.josemanuel.paf_agrohub_grupo01.MainActivity;
 import com.josemanuel.paf_agrohub_grupo01.R;
 import com.josemanuel.paf_agrohub_grupo01.databinding.FragmentLoginBinding;
 import com.josemanuel.paf_agrohub_grupo01.datos.ApiClient;
@@ -26,7 +28,8 @@ import retrofit2.Response;
 
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
-
+    private NavigationView navigationView;
+    private DrawerLayout drawerLayout;
     public LoginFragment() {
 
     }
@@ -70,22 +73,19 @@ public class LoginFragment extends Fragment {
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                         if (response.isSuccessful() && response.body() != null) {
                             LoginResponse loginResponse = response.body();
-
+                            Bundle bundleAC = new Bundle();
                             if (loginResponse.isSuccess()) {
                                 String rol = loginResponse.getRol();
-
                                 if ("Agricultor".equals(rol)) {
-                                    Toast.makeText(getContext(), "", Toast.LENGTH_LONG).show();
-                                    //NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_consumidorVistaFragment);
+                                    bundleAC.putString("rol",rol);
+                                    ((MainActivity) requireActivity()).handleLoginRole(bundleAC);
+
+                                    NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_agPerfilAgricultorFragment);
                                 } else if ("Consumidor".equals(rol)) {
-                                    //NavDirections action = LoginFragmentDirections.actionIniLoginFragmentToCliConsumidorVistaFragment();
-
-
+                                    bundleAC.putString("rol", rol);
+                                    ((MainActivity) requireActivity()).handleLoginRole(bundleAC);
                                     NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_consumidorVistaFragment);
                                 }
-
-
-
                             } else {
                                 Toast.makeText(getContext(), loginResponse.getMensaje(), Toast.LENGTH_LONG).show();
                             }

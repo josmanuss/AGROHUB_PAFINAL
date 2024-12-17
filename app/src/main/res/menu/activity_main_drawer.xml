@@ -1,28 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    tools:showIn = "navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:checkableBehavior="single"
+        >
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
-            android:id="@+id/nav_inicio_consumidor"
+            android:id="@+id/nav_home_agricultor"
             android:icon="@drawable/baseline_home_24"
-            android:title="@string/inicio_consumidor" />
+            android:title="Inicio"/>
+
         <item
-            android:id="@+id/nav_productos_consumidor"
-            android:icon="@drawable/baseline_home_24"
-            android:title="@string/inicio_consumidor" />
+            android:id="@+id/agPerfilAgricultorFragment"
+            android:icon="@drawable/baseline_person_24"
+            android:title="Perfil"/>
+
+        <item
+            android:id="@+id/agSoporteAgricultorFragment"
+            android:icon="@drawable/baseline_info_24"
+            android:title="Soporte"/>
+
     </group>
+
+    <item android:title="Administracion">
+        <menu>
+            <item
+                android:id="@+id/agNuevoProductoFragment"
+                android:icon="@drawable/baseline_add_24"
+                android:title="Agregar Producto"/>
+
+            <item
+                android:id="@+id/nav_product_agricultor"
+                android:icon="@drawable/baseline_local_mall_24"
+                android:title="Productos"/>
+
+            <item
+                android:id="@+id/nav_Logistica_agricultor"
+                android:icon="@drawable/baseline_psychology_24"
+                android:title="Logistica"/>
+            <item
+                android:id="@+id/nav_ventas_agricultor"
+                android:icon="@drawable/baseline_local_shipping_24"
+                android:title="Ventas"/>
+        </menu>
+    </item>
+
+    <item
+        android:title="Sistema">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/baseline_exit_to_app_24"
+                android:title="Cerrar Sesión"/>
+        </menu>
+
+    </item>
+
 </menu>

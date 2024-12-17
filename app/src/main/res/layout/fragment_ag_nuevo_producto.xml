@@ -67,11 +67,13 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="4dp"
                     android:textColor="#4CAF50"/>
-                <EditText
+
+                <Spinner
                     android:id="@+id/category"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Ingrese la categoría" />
+                    android:layout_height="35dp"
+                    android:hint="Ingrese la categoría"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -98,6 +100,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="4dp"
                     android:textColor="#4CAF50"/>
+
                 <EditText
                     android:id="@+id/quantity"
                     android:layout_width="match_parent"
@@ -108,28 +111,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Fecha de Vencimiento"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:textColor="#4CAF50"/>
-                <EditText
-                    android:id="@+id/expiration_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="dd/mm/aaaa"
-                    android:inputType="date" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:text="Imagen del Producto"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="4dp"
                     android:textColor="#4CAF50"/>
+
                 <Button
                     android:id="@+id/select_image_button"
                     android:layout_width="match_parent"
@@ -162,7 +150,7 @@
                     android:layout_marginTop="16dp">
 
                     <Button
-                        android:id="@+id/add_product_button"
+                        android:id="@+id/AgregarProducto"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
@@ -172,7 +160,7 @@
                         android:layout_marginBottom="8dp" />
 
                     <Button
-                        android:id="@+id/cancel_button"
+                        android:id="@+id/CancelarRegistroProducto"
                         android:layout_width="201dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"

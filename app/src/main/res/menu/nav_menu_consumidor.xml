@@ -8,12 +8,12 @@
         android:checkableBehavior="single"
         >
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/cliConsumidorVistaFragment"
             android:icon="@drawable/baseline_home_24"
             android:title="Inicio"/>
 
         <item
-            android:id="@+id/nav_perfil"
+            android:id="@+id/perfilConsumidor"
             android:icon="@drawable/baseline_person_24"
             android:title="Perfil"/>
 
@@ -26,7 +26,7 @@
     <item android:title="Compras">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/clienteProductosFragment"
                 android:icon="@drawable/baseline_local_mall_24"
                 android:title="Productos"/>
 
@@ -46,11 +46,10 @@
         android:title="Sistema">
         <menu>
             <item
-                android:id="@+id/nav_logout"
+                android:id="@+id/loginFragment"
                 android:icon="@drawable/baseline_exit_to_app_24"
                 android:title="Cerrar Sesión"/>
         </menu>
-
     </item>
 
 </menu>
