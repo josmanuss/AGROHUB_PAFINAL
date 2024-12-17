@@ -3,8 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
-    android:background="#F1F8E9">
+    android:background="#F1F8E9"
+    tools:context="ui.HomeAgricultor">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +26,7 @@
             android:clickable="true">
 
             <RelativeLayout
+                android:id="@+id/seccionPerfil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -33,20 +36,20 @@
                     android:layout_height="60dp"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="16dp"
-                    android:src="@drawable/ic_perfil"
                     android:contentDescription="Imagen de frutas"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_perfil" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SECCIÓN DE PERFIL"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="#2E7D32"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
                     android:layout_toEndOf="@id/imgPerfil"
-                    android:layout_marginStart="16dp" />
+                    android:text="SECCIÓN DE PERFIL"
+                    android:textColor="#2E7D32"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>

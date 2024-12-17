@@ -86,7 +86,6 @@ public class AgNuevoProductoFragment extends Fragment {
         binding.AgregarProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ApiService apiService = ApiClient.getClient().create(ApiService.class);
 
                 String nombre = binding.productName.getText().toString().trim();
                 String descripcion = binding.description.getText().toString().trim();
@@ -107,6 +106,7 @@ public class AgNuevoProductoFragment extends Fragment {
                         id_categoria
                 );
 
+                ApiService apiService = ApiClient.getClient().create(ApiService.class);
                 Call<RegistrarProductoResp> call = apiService.registrarProducto(productoRequest);
                 call.enqueue(new Callback<RegistrarProductoResp>() {
                     @Override

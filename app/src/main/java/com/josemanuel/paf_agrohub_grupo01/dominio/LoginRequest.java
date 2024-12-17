@@ -1,27 +1,27 @@
 package com.josemanuel.paf_agrohub_grupo01.dominio;
 
 public class LoginRequest {
-    private String usuario_email;
-    private String contrasenia;
+    private String username;
+    private String password;
 
-    public String getUsuario_email() {
-        return usuario_email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsuario_email(String usuario_email) {
-        this.usuario_email = usuario_email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public LoginRequest(String usuario_email, String contrasenia) {
-        this.usuario_email = usuario_email;
-        this.contrasenia = contrasenia;
+    public LoginRequest(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 }

@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_loginFragment_to_agPerfilAgricultorFragment"
             app:destination="@id/agPerfilAgricultorFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_HomeAgricultorFragment"
+            app:destination="@id/HomeAgricultorFragment" />
     </fragment>
 
     <fragment
@@ -81,7 +84,11 @@
         android:id="@+id/agPerfilAgricultorFragment"
         android:name="com.josemanuel.paf_agrohub_grupo01.ui.AgPerfilAgricultorFragment"
         android:label="Perfil Agricultor"
-        tools:layout="@layout/fragment_ag_perfil_agricultor" />
+        tools:layout="@layout/fragment_ag_perfil_agricultor" >
+        <action
+            android:id="@+id/action_agPerfilAgricultorFragment_to_agEditarAgricultorFragment"
+            app:destination="@id/agEditarAgricultorFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/agProductosDisponiblesFragment"
@@ -146,5 +153,14 @@
         android:name="com.josemanuel.paf_agrohub_grupo01.ui.CliEditarPerfilFragment"
         android:label="fragment_gallery"
         tools:layout="@layout/fragment_cli_editar_perfil" />
+    <fragment
+        android:id="@+id/HomeAgricultorFragment"
+        android:name="com.josemanuel.paf_agrohub_grupo01.HomeAgricultorFragment"
+        android:label="HomeAgricultorFragment"
+        tools:layout="@layout/fragment_home_agricultor">
+        <action
+            android:id="@+id/action_HomeAgricultorFragment_to_agPerfilAgricultorFragment"
+            app:destination="@id/agPerfilAgricultorFragment" />
+    </fragment>
 
 </navigation>

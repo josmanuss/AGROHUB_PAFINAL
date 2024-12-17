@@ -39,7 +39,7 @@ public interface ApiService {
     @GET("listarAgricultores")
     Call<List<ObtenerAgricultorResp>> obtenerAgricultor();
 
-    @POST("/registrar_producto")
+    @POST("registrar_producto")
     Call<RegistrarProductoResp> registrarProducto(@Body RegistrarProductoReq request);
 
     @PUT("actualizarConsumidor")
